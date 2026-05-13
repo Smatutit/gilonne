@@ -3,208 +3,570 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gilonne Studio | נעלי עור בעבודת יד</title>
-  <meta name="description" content="קבקבים, סנדלים ונעלי עור בעבודת יד — עיצוב אירופאי, חומרים טבעיים, מלאכת יד אמיתית." />
-  <meta property="og:title" content="Gilonne Studio | נעלי עור בעבודת יד" />
+  <title>Gilonne Studio | דף זמני</title>
+  <meta name="description" content="זהו דף זמני של Gilonne Studio. האתר והחנות החדשה יעלו בתחילת חודש יוני עם הגעת כל הדגמים לישראל." />
+  <meta property="og:title" content="Gilonne Studio | דף זמני" />
   <meta property="og:image" content="images/hero.jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Heebo:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Heebo:wght@300;400;500;700;800&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
 
     :root {
-      --white:  #ffffff;
-      --bg:     #f7f7f5;
-      --ink:    #111111;
-      --ink2:   #444;
-      --ink3:   #777;
-      --green:  #1a3d28;
-      --green2: #245035;
-      --fb:     #1877F2;
-      --fb-h:   #1464d8;
-      --line:   rgba(0,0,0,.1);
-      --serif:  'Cormorant Garamond', Georgia, serif;
-      --sans:   'Heebo', sans-serif;
+      --white: #ffffff;
+      --bg: #f6f4ef;
+      --bg-soft: #fbfaf7;
+      --ink: #151515;
+      --ink2: #4a4a4a;
+      --ink3: #7a7a7a;
+      --green: #183726;
+      --green2: #244734;
+      --gold: #c3a46d;
+      --gold-soft: rgba(195,164,109,.18);
+      --fb: #1877F2;
+      --fb-h: #1464d8;
+      --line: rgba(0,0,0,.08);
+      --line-strong: rgba(255,255,255,.18);
+      --overlay: linear-gradient(180deg, rgba(9,10,9,.18) 0%, rgba(9,10,9,.56) 55%, rgba(9,10,9,.78) 100%);
+      --serif: 'Cormorant Garamond', Georgia, serif;
+      --sans: 'Heebo', sans-serif;
+      --shadow: 0 24px 60px rgba(0,0,0,.14);
     }
 
-    body { font-family: var(--sans); background: var(--white); color: var(--ink); line-height: 1.7; }
+    body {
+      font-family: var(--sans);
+      background: var(--white);
+      color: var(--ink);
+      line-height: 1.7;
+    }
+
     img { display: block; width: 100%; height: 100%; object-fit: cover; }
     a { color: inherit; text-decoration: none; }
     .wrap { width: min(1180px, calc(100% - 40px)); margin: auto; }
 
-    /* NAV */
     nav {
-      position: sticky; top: 0; z-index: 20;
-      background: rgba(255,255,255,.96);
-      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      background: rgba(255,255,255,.88);
+      backdrop-filter: blur(14px);
       border-bottom: 1px solid var(--line);
     }
+
     .nav-inner {
-      display: flex; align-items: center; justify-content: space-between;
-      gap: 16px; padding: 18px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 16px 0;
     }
+
+    .brand-wrap {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .brand-logo {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      overflow: hidden;
+      background: var(--bg);
+      border: 1px solid var(--line);
+      flex: 0 0 52px;
+    }
+
     .brand {
       font-family: var(--serif);
-      font-size: 1.75rem; font-weight: 700; letter-spacing: .03em;
+      font-size: 1.8rem;
+      font-weight: 700;
+      letter-spacing: .03em;
       color: var(--green);
+      line-height: .95;
     }
-    .brand small {
-      display: block; font-family: var(--sans);
-      font-size: .68rem; letter-spacing: .18em;
-      text-transform: uppercase; color: var(--ink3); margin-top: 1px;
-    }
-    .btn-fb {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 13px 22px; border-radius: 4px;
-      background: var(--fb); color: #fff;
-      font-family: var(--sans); font-size: .92rem; font-weight: 500;
-      transition: background .2s;
-    }
-    .btn-fb:hover { background: var(--fb-h); }
 
-    /* HERO */
-    .hero { position: relative; height: 94vh; min-height: 580px; overflow: hidden; }
-    .hero > img { position: absolute; inset: 0; filter: brightness(.48); }
+    .brand small {
+      display: block;
+      font-family: var(--sans);
+      font-size: .72rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--ink3);
+      margin-top: 6px;
+    }
+
+    .btn-fb, .btn-fb-lg {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      border-radius: 999px;
+      background: var(--fb);
+      color: #fff;
+      font-family: var(--sans);
+      font-weight: 500;
+      transition: transform .2s ease, background .2s ease, box-shadow .2s ease;
+      box-shadow: 0 10px 24px rgba(24,119,242,.18);
+    }
+
+    .btn-fb {
+      padding: 13px 22px;
+      font-size: .94rem;
+    }
+
+    .btn-fb-lg {
+      padding: 18px 34px;
+      font-size: 1.02rem;
+    }
+
+    .btn-fb:hover, .btn-fb-lg:hover {
+      background: var(--fb-h);
+      transform: translateY(-1px);
+    }
+
+    .hero {
+      position: relative;
+      min-height: 96vh;
+      overflow: hidden;
+      background: #111;
+    }
+
+    .hero > img {
+      position: absolute;
+      inset: 0;
+      filter: brightness(.68);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: var(--overlay);
+    }
+
     .hero-content {
-      position: relative; z-index: 1;
-      height: 94vh; min-height: 580px;
-      display: flex; align-items: flex-end;
+      position: relative;
+      z-index: 1;
+      min-height: 96vh;
+      display: flex;
+      align-items: center;
     }
-    .hero-copy { padding-bottom: clamp(40px, 8vw, 80px); max-width: 660px; }
+
+    .hero-copy {
+      padding: clamp(42px, 8vw, 84px) 0;
+      max-width: 760px;
+    }
+
+    .temporary-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 11px 16px;
+      margin-bottom: 22px;
+      border-radius: 999px;
+      border: 1px solid var(--line-strong);
+      background: rgba(255,255,255,.08);
+      backdrop-filter: blur(10px);
+      color: #fff;
+      font-size: .84rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .temporary-badge span {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--gold);
+      box-shadow: 0 0 0 6px var(--gold-soft);
+    }
+
+    .hero-panel {
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.14);
+      backdrop-filter: blur(12px);
+      box-shadow: var(--shadow);
+      padding: clamp(24px, 4vw, 36px);
+      border-radius: 28px;
+    }
+
     .kicker {
-      font-size: .72rem; letter-spacing: .22em; text-transform: uppercase;
-      color: rgba(255,255,255,.7); margin-bottom: 14px;
+      font-size: .76rem;
+      letter-spacing: .24em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.74);
+      margin-bottom: 14px;
     }
+
     .hero-copy h1 {
       font-family: var(--serif);
-      font-size: clamp(3.4rem, 8vw, 6.5rem);
-      font-weight: 700; line-height: .9; color: #fff;
+      font-size: clamp(3.2rem, 8vw, 6.4rem);
+      font-weight: 700;
+      line-height: .88;
+      color: #fff;
     }
+
     .hero-copy h1 em { font-style: italic; font-weight: 400; }
-    .hero-copy p { margin-top: 18px; color: rgba(255,255,255,.8); max-width: 52ch; font-size: 1.05rem; }
-    .hero-copy .btn-fb { margin-top: 28px; }
 
-    /* STRIP */
+    .hero-copy p {
+      margin-top: 18px;
+      color: rgba(255,255,255,.86);
+      max-width: 56ch;
+      font-size: 1.04rem;
+    }
+
+    .launch-note {
+      margin-top: 22px;
+      display: grid;
+      gap: 14px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,.16);
+    }
+
+    .launch-note .he {
+      color: #fff;
+      font-size: clamp(1.2rem, 2vw, 1.7rem);
+      line-height: 1.35;
+      font-weight: 700;
+    }
+
+    .launch-note .en {
+      color: rgba(255,255,255,.8);
+      font-size: .98rem;
+      line-height: 1.7;
+      direction: ltr;
+      text-align: left;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .ghost-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 22px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.22);
+      color: #fff;
+      background: rgba(255,255,255,.04);
+      transition: background .2s ease, transform .2s ease;
+    }
+
+    .ghost-link:hover {
+      background: rgba(255,255,255,.1);
+      transform: translateY(-1px);
+    }
+
     .strip {
-      background: var(--green); color: #fff;
-      text-align: center; padding: 36px 20px;
-    }
-    .strip p {
-      font-family: var(--serif); font-style: italic;
-      font-size: clamp(1.25rem, 2.5vw, 1.8rem);
-      max-width: 54ch; margin: auto; opacity: .92;
-    }
-    .strip span {
-      display: block; margin-top: 10px;
-      font-size: .72rem; letter-spacing: .2em; text-transform: uppercase; opacity: .55;
+      background: var(--green);
+      color: #fff;
+      text-align: center;
+      padding: 34px 20px;
     }
 
-    /* SECTIONS */
-    section { padding: clamp(56px, 8vw, 96px) 0; }
-    .section-kicker {
-      font-size: .72rem; letter-spacing: .2em; text-transform: uppercase;
-      color: var(--ink3); margin-bottom: 6px;
+    .strip p {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: clamp(1.25rem, 2.5vw, 1.8rem);
+      max-width: 56ch;
+      margin: auto;
+      opacity: .94;
     }
+
+    .strip span {
+      display: block;
+      margin-top: 10px;
+      font-size: .74rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      opacity: .58;
+    }
+
+    section { padding: clamp(56px, 8vw, 96px) 0; }
+
+    .section-kicker {
+      font-size: .74rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--ink3);
+      margin-bottom: 8px;
+    }
+
     .section-title {
       font-family: var(--serif);
-      font-size: clamp(2.2rem, 4.5vw, 3.4rem);
-      font-weight: 700; line-height: 1;
-      color: var(--green); margin-bottom: 36px;
+      font-size: clamp(2.3rem, 4.5vw, 3.5rem);
+      font-weight: 700;
+      line-height: .98;
+      color: var(--green);
+      margin-bottom: 36px;
     }
 
-    /* PRODUCTS */
-    .products { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
-    .card { background: var(--bg); border: 1px solid var(--line); overflow: hidden; }
-    .card-image { aspect-ratio: 3/4; overflow: hidden; background: #eee; }
-    .card-image img { transition: transform .55s ease; }
-    .card:hover .card-image img { transform: scale(1.06); }
-    .card-body { padding: 18px; }
+    .products {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+    }
+
+    .card {
+      background: var(--bg-soft);
+      border: 1px solid var(--line);
+      overflow: hidden;
+      border-radius: 22px;
+      transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 40px rgba(0,0,0,.08);
+      border-color: rgba(0,0,0,.13);
+    }
+
+    .card-image {
+      aspect-ratio: 3/4;
+      overflow: hidden;
+      background: #eee;
+    }
+
+    .card-image img {
+      transition: transform .65s ease;
+    }
+
+    .card:hover .card-image img {
+      transform: scale(1.05);
+    }
+
+    .card-body {
+      padding: 20px 18px 18px;
+    }
+
     .card-body h3 {
       font-family: var(--serif);
-      font-size: 1.45rem; font-weight: 700;
-      color: var(--green); margin-bottom: 5px; line-height: 1.1;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--green);
+      margin-bottom: 6px;
+      line-height: 1.08;
     }
-    .card-body p { color: var(--ink2); font-size: .9rem; }
+
+    .card-body p {
+      color: var(--ink2);
+      font-size: .95rem;
+    }
+
     .card-tag {
-      display: inline-block; margin-top: 10px;
-      font-size: .7rem; letter-spacing: .12em; text-transform: uppercase;
-      border-bottom: 1.5px solid currentColor; padding-bottom: 1px;
+      display: inline-block;
+      margin-top: 12px;
+      font-size: .72rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      border-bottom: 1.5px solid currentColor;
+      padding-bottom: 1px;
     }
+
     .dot {
-      display: inline-block; width: 11px; height: 11px;
-      border-radius: 50%; margin-left: 5px; vertical-align: middle;
+      display: inline-block;
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      margin-left: 5px;
+      vertical-align: middle;
       border: 1.5px solid rgba(0,0,0,.18);
     }
 
-    /* WIDE IMAGE */
-    .wide-img { height: 58vh; min-height: 320px; overflow: hidden; }
-    .wide-img img { filter: brightness(.82); }
-
-    /* STORY */
-    .story-grid { display: grid; grid-template-columns: 1fr 1fr; border: 1px solid var(--line); }
-    .story-img { min-height: 500px; }
-    .story-text {
-      background: var(--bg);
-      padding: clamp(36px, 5vw, 64px);
-      display: flex; flex-direction: column; justify-content: center;
+    .wide-img {
+      height: 60vh;
+      min-height: 340px;
+      overflow: hidden;
     }
+
+    .wide-img img {
+      filter: brightness(.84);
+    }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      overflow: hidden;
+      background: var(--bg-soft);
+    }
+
+    .story-img { min-height: 500px; }
+
+    .story-text {
+      background: var(--bg-soft);
+      padding: clamp(36px, 5vw, 64px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
     .story-text h2 {
       font-family: var(--serif);
       font-size: clamp(2rem, 3.5vw, 2.8rem);
-      font-weight: 700; line-height: 1;
-      color: var(--green); margin-bottom: 18px;
+      font-weight: 700;
+      line-height: 1;
+      color: var(--green);
+      margin-bottom: 18px;
     }
-    .story-text p { color: var(--ink2); margin-bottom: 14px; max-width: 44ch; }
 
-    /* FACTS */
-    .facts { background: var(--green); }
-    .facts-grid { display: grid; grid-template-columns: repeat(4, 1fr); }
-    .fact { padding: 40px 28px; border-left: 1px solid rgba(255,255,255,.15); color: #fff; }
+    .story-text p {
+      color: var(--ink2);
+      margin-bottom: 14px;
+      max-width: 44ch;
+    }
+
+    .facts {
+      background: var(--green);
+    }
+
+    .facts-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .fact {
+      padding: 40px 28px;
+      border-left: 1px solid rgba(255,255,255,.14);
+      color: #fff;
+    }
+
     .fact:first-child { border-left: 0; }
-    .fact strong {
-      display: block; font-family: var(--serif);
-      font-size: 2.8rem; font-weight: 700; line-height: 1; margin-bottom: 8px; opacity: .85;
-    }
-    .fact h3 { font-size: 1rem; font-weight: 500; margin-bottom: 5px; }
-    .fact p { font-size: .88rem; opacity: .65; }
 
-    /* CTA */
-    .cta-section { text-align: center; padding: clamp(60px, 10vw, 110px) 0; background: var(--bg); }
+    .fact strong {
+      display: block;
+      font-family: var(--serif);
+      font-size: 2.8rem;
+      font-weight: 700;
+      line-height: 1;
+      margin-bottom: 8px;
+      opacity: .9;
+    }
+
+    .fact h3 {
+      font-size: 1rem;
+      font-weight: 500;
+      margin-bottom: 5px;
+    }
+
+    .fact p {
+      font-size: .9rem;
+      opacity: .68;
+    }
+
+    .cta-section {
+      text-align: center;
+      padding: clamp(68px, 10vw, 120px) 0;
+      background: linear-gradient(180deg, var(--bg-soft) 0%, var(--bg) 100%);
+    }
+
     .cta-section h2 {
       font-family: var(--serif);
-      font-size: clamp(2.6rem, 6vw, 5rem);
-      font-weight: 700; line-height: .95;
-      color: var(--green); margin-bottom: 16px;
+      font-size: clamp(2.7rem, 6vw, 5rem);
+      font-weight: 700;
+      line-height: .95;
+      color: var(--green);
+      margin-bottom: 16px;
     }
-    .cta-section h2 em { font-style: italic; font-weight: 400; }
-    .cta-section p { color: var(--ink2); max-width: 50ch; margin: 0 auto 28px; }
-    .btn-fb-lg {
-      display: inline-flex; align-items: center; gap: 10px;
-      padding: 18px 32px; border-radius: 4px;
-      background: var(--fb); color: #fff;
-      font-family: var(--sans); font-size: 1.05rem; font-weight: 500;
-      transition: background .2s;
-    }
-    .btn-fb-lg:hover { background: var(--fb-h); }
 
-    /* FOOTER */
-    footer { background: #111; color: rgba(255,255,255,.6); padding: 28px 0; font-size: .85rem; }
-    .footer-inner { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; flex-wrap: wrap; }
-    .footer-inner a { color: rgba(255,255,255,.6); }
-    .footer-inner a:hover { color: #fff; }
+    .cta-section h2 em {
+      font-style: italic;
+      font-weight: 400;
+    }
+
+    .cta-section p {
+      color: var(--ink2);
+      max-width: 58ch;
+      margin: 0 auto 28px;
+      font-size: 1rem;
+    }
+
+    footer {
+      background: #111;
+      color: rgba(255,255,255,.62);
+      padding: 28px 0;
+      font-size: .88rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .footer-inner a {
+      color: rgba(255,255,255,.72);
+    }
+
+    .footer-inner a:hover {
+      color: #fff;
+    }
 
     @media (max-width: 960px) {
       .products, .facts-grid { grid-template-columns: repeat(2, 1fr); }
       .story-grid { grid-template-columns: 1fr; }
       .story-img { min-height: 360px; }
+      .hero-copy { max-width: 100%; }
     }
+
+    @media (max-width: 720px) {
+      .nav-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .brand-wrap {
+        width: 100%;
+      }
+
+      .btn-fb {
+        width: 100%;
+      }
+
+      .hero-copy h1 {
+        font-size: clamp(2.7rem, 13vw, 4.5rem);
+      }
+
+      .hero-panel {
+        border-radius: 22px;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+      }
+
+      .hero-actions a {
+        width: 100%;
+      }
+    }
+
     @media (max-width: 620px) {
       .products { grid-template-columns: 1fr; }
       .facts-grid { grid-template-columns: 1fr; }
-      .fact { border-left: 0; border-top: 1px solid rgba(255,255,255,.15); }
+      .fact {
+        border-left: 0;
+        border-top: 1px solid rgba(255,255,255,.14);
+      }
       .fact:first-child { border-top: 0; }
+      .brand {
+        font-size: 1.5rem;
+      }
+      .brand-logo {
+        width: 46px;
+        height: 46px;
+        flex-basis: 46px;
+      }
     }
   </style>
 </head>
@@ -212,41 +574,61 @@
 
 <nav>
   <div class="wrap nav-inner">
-    <div class="brand">
-      Gilonne Studio
-      <small>עבודת יד · משנת 1991</small>
+    <div class="brand-wrap">
+      <div class="brand-logo">
+        <img src="images/logo.jpg" alt="Gilonne Studio logo" />
+      </div>
+      <div class="brand">
+        Gilonne Studio
+        <small>Temporary Page · דף זמני</small>
+      </div>
     </div>
-    <a class="btn-fb" href="https://www.facebook.com/profile.php?id=61588969651577" target="_blank" rel="noopener">
-      <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878V14.89h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/></svg>
+
+    <a class="btn-fb" href="https://www.facebook.com/profile.php?id=61588969651577" target="_blank" rel="noopener noreferrer">
+      <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878V14.89h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/></svg>
       לעמוד הפייסבוק
     </a>
   </div>
 </nav>
 
-<div class="hero">
+<header class="hero">
   <img src="images/hero.jpg" alt="סדנת נעליים בעבודת יד" />
   <div class="hero-content">
     <div class="wrap hero-copy">
-      <div class="kicker">נעלי עור · סוליית עץ · עבודת יד</div>
-      <h1><em>עשויות</em> ביד,<br />נלבשות ברוח.</h1>
-      <p>קבקבים, מיולים וסנדלים מעור טבעי — בעיצוב שמדבר ישירות לנשים שיודעות מה הן רוצות.</p>
-      <a class="btn-fb" href="https://www.facebook.com/profile.php?id=61588969651577" target="_blank" rel="noopener">
-        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878V14.89h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/></svg>
-        לכל הדגמים בפייסבוק
-      </a>
+      <div class="temporary-badge"><span></span>Temporary brand page</div>
+
+      <div class="hero-panel">
+        <div class="kicker">נעלי עור · סוליית עץ · עבודת יד</div>
+        <h1>זהו <em>דף זמני</em><br />של המותג.</h1>
+        <p>אנחנו בונים בימים אלה את האתר והחנות החדשה של Gilonne Studio — חוויית מותג מלאה, יפה ומדויקת יותר, כפי שהקולקציה באמת ראויה לה.</p>
+
+        <div class="launch-note">
+          <div class="he">האתר והחנות החדשה יעלו לאוויר בתחילת חודש יוני, לאחר הגעת כל הדגמים לישראל.</div>
+          <div class="en">This is a temporary page only. The full brand website and online store will launch in early June, once the complete collection arrives in Israel.</div>
+        </div>
+
+        <div class="hero-actions">
+          <a class="btn-fb" href="https://www.facebook.com/profile.php?id=61588969651577" target="_blank" rel="noopener noreferrer">
+            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878V14.89h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/></svg>
+            לכל הדגמים בפייסבוק
+          </a>
+
+          <a class="ghost-link" href="#collection">לצפייה בדגמים נבחרים</a>
+        </div>
+      </div>
     </div>
   </div>
-</div>
+</header>
 
 <div class="strip">
-  <p>״יותר מ-30 שנה בשוק — ניסיון, פרטים קטנים, עבודת יד, חומרים מהמעולים ביותר.״</p>
+  <p>״יותר מ-30 שנה בשוק — ניסיון, פרטים קטנים, עבודת יד וחומרים מעולים באמת.״</p>
   <span>סדנת אמן קטנה בהרים · עור טבעי · סוליות עץ</span>
 </div>
 
-<section>
+<section id="collection">
   <div class="wrap">
     <div class="section-kicker">הקולקציה</div>
-    <h2 class="section-title">קבקבים ומיולים</h2>
+    <h2 class="section-title">קבקבים, מיולים וסנדלים</h2>
     <div class="products">
 
       <article class="card">
@@ -255,7 +637,7 @@
         </div>
         <div class="card-body">
           <h3>Mule Lime</h3>
-          <p>מיול אלגנטי בצבע ליים רענן. קו נקי, עור מלא, סוליית עץ.</p>
+          <p>מיול אלגנטי בצבע ליים רענן. קו נקי, עור מלא וסוליית עץ.</p>
           <span class="card-tag" style="color:#4a8c14">
             <span class="dot" style="background:#8bc34a"></span>
             ליים
@@ -269,7 +651,7 @@
         </div>
         <div class="card-body">
           <h3>Mule Purple Fuchsia</h3>
-          <p>מיול נועז בגוון סגול-פאוצ'יה עשיר. נוכחות חזקה, עיצוב צרפתי.</p>
+          <p>מיול נועז בגוון סגול-פאוצ'יה עשיר עם נוכחות חזקה ועיצוב אלגנטי.</p>
           <span class="card-tag" style="color:#b5006e">
             <span class="dot" style="background:#c0006e"></span>
             סגול-פאוצ'יה
@@ -283,7 +665,7 @@
         </div>
         <div class="card-body">
           <h3>Purple Gold Classic Clog</h3>
-          <p>קבקב קלאסי בשילוב סגול-זהב. חום של סדנה, ייחוד של מותג.</p>
+          <p>קבקב קלאסי בשילוב סגול-זהב, עם אופי של סדנה ומראה של פריט מיוחד.</p>
           <span class="card-tag" style="color:#8a6e00">
             <span class="dot" style="background:#b8a000"></span>
             סגול–זהב
@@ -297,7 +679,7 @@
         </div>
         <div class="card-body">
           <h3>Sandals High Heel – Red Patent</h3>
-          <p>סנדל עקב בעור לכה אדום עז. לאשה שלא מוותרת על שום דבר.</p>
+          <p>סנדל עקב בעור לכה אדום עז, לנוכחות נשית שלא מתנצלת.</p>
           <span class="card-tag" style="color:#b50015">
             <span class="dot" style="background:#cc0015"></span>
             אדום לכה
@@ -356,11 +738,11 @@
 
 <section class="cta-section">
   <div class="wrap">
-    <h2>החנות <em>בקרוב.</em></h2>
-    <p>עד שהמלאי יגיע ואתר החנות יעלה — עקבו אחרינו בפייסבוק לדגמים חדשים, מחירים ועדכונים.</p>
-    <a class="btn-fb-lg" href="https://www.facebook.com/profile.php?id=61588969651577" target="_blank" rel="noopener">
-      <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878V14.89h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/></svg>
-      עקבו עלינו בפייסבוק
+    <h2>החנות החדשה <em>בקרוב.</em></h2>
+    <p>עד שהקולקציה המלאה תגיע לישראל והאתר החדש יעלה לאוויר בתחילת יוני, אפשר להתעדכן בדגמים, במחירים ובעדכונים דרך עמוד הפייסבוק.</p>
+    <a class="btn-fb-lg" href="https://www.facebook.com/profile.php?id=61588969651577" target="_blank" rel="noopener noreferrer">
+      <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878V14.89h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/></svg>
+      עקבו אחרינו בפייסבוק
     </a>
   </div>
 </section>
@@ -372,7 +754,7 @@
       <div>אנחנו נמצאים ברמת-גן</div>
     </div>
     <div style="text-align:left;">
-      <a href="https://www.gilonnesutio.com" target="_blank" rel="noopener">www.gilonnesutio.com</a>
+      <a href="https://www.gilonnesutio.com" target="_blank" rel="noopener noreferrer">www.gilonnesutio.com</a>
       <div style="margin-top:4px;">© 2026 כל הזכויות שמורות</div>
     </div>
   </div>
