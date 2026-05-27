@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
@@ -201,15 +202,27 @@
       margin-bottom: 14px;
     }
 
-    .hero-copy h1 {
+    .title-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .title-row h1 {
       font-family: var(--serif);
-      font-size: clamp(3.2rem, 8vw, 6.4rem);
+      font-size: clamp(2.2rem, 4.5vw, 3.6rem);
       font-weight: 700;
-      line-height: .88;
+      line-height: 1.1;
       color: #fff;
     }
 
-    .hero-copy h1 em { font-style: italic; font-weight: 400; }
+    .title-row h1 em { font-style: italic; font-weight: 400; }
+    
+    .title-row h1.en {
+      direction: ltr;
+      text-align: left;
+    }
 
     .hero-copy p {
       margin-top: 18px;
@@ -218,25 +231,29 @@
       font-size: 1.04rem;
     }
 
-    .launch-note {
+    .launch-note-box {
       margin-top: 22px;
+      padding: 20px;
+      border: 1px solid rgba(195,164,109,.4);
+      background: rgba(195,164,109,.08);
+      border-radius: 16px;
       display: grid;
-      gap: 14px;
-      padding-top: 20px;
-      border-top: 1px solid rgba(255,255,255,.16);
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      align-items: start;
     }
 
-    .launch-note .he {
+    .launch-note-box .he {
+      color: rgba(255,255,255,.9);
+      font-size: 1.05rem;
+      line-height: 1.5;
+    }
+
+    .launch-note-box .en {
       color: #fff;
-      font-size: clamp(1.2rem, 2vw, 1.7rem);
+      font-size: clamp(1.1rem, 1.8vw, 1.4rem);
       line-height: 1.35;
       font-weight: 700;
-    }
-
-    .launch-note .en {
-      color: rgba(255,255,255,.8);
-      font-size: .98rem;
-      line-height: 1.7;
       direction: ltr;
       text-align: left;
     }
@@ -534,8 +551,18 @@
         width: 100%;
       }
 
-      .hero-copy h1 {
-        font-size: clamp(2.7rem, 13vw, 4.5rem);
+      .title-row {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .title-row h1 {
+        font-size: clamp(2rem, 8vw, 3rem);
+      }
+
+      .launch-note-box {
+        grid-template-columns: 1fr;
+        gap: 16px;
       }
 
       .hero-panel {
@@ -599,12 +626,17 @@
 
       <div class="hero-panel">
         <div class="kicker">נעלי עור · סוליית עץ · עבודת יד</div>
-        <h1>זהו <em>דף זמני</em><br />של המותג.</h1>
+        
+        <div class="title-row">
+          <h1>זהו <em>דף זמני</em><br />של המותג.</h1>
+          <h1 class="en">This is a <em>temporary</em><br />brand page.</h1>
+        </div>
+
         <p>אנחנו בונים בימים אלה את האתר והחנות החדשה של Gilonne Studio — חוויית מותג מלאה, יפה ומדויקת יותר, כפי שהקולקציה באמת ראויה לה.</p>
 
-        <div class="launch-note">
+        <div class="launch-note-box">
           <div class="he">האתר והחנות החדשה יעלו לאוויר בתחילת חודש יוני, לאחר הגעת כל הדגמים לישראל.</div>
-          <div class="en">This is a temporary page only. The full brand website and online store will launch in early June, once the complete collection arrives in Israel.</div>
+          <div class="en">The full brand website and online store will launch in early June, once the complete collection arrives in Israel.</div>
         </div>
 
         <div class="hero-actions">
@@ -762,3 +794,5 @@
 
 </body>
 </html>
+
+```
